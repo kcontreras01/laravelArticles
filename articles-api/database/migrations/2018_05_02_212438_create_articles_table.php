@@ -11,6 +11,7 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('articles');
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('author_id')->unsigned();
@@ -19,6 +20,7 @@ class CreateArticlesTable extends Migration
             $table->foreign('author_id')->references('id')->on('people');
         });
     }
+
     /**
      * Reverse the migrations.
      *

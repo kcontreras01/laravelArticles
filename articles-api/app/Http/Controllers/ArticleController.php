@@ -1,5 +1,7 @@
 <?php
 
+Route::resource('articles', 'ArticleController');
+
 namespace App\Http\Controllers;
 
 use App\Article;
@@ -46,7 +48,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return new ArticleResource($article);
     }
 
     /**
